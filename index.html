@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA DE AUTOS</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Mostrar el cartel de confirmación al cargar la página
+        window.onload = function () {
+            const modal = document.getElementById('age-modal');
+            modal.style.display = 'flex';
+        };
+
+        // Función para cerrar el cartel si el usuario es mayor de 18 años
+        function confirmAge(isAdult) {
+            if (isAdult) {
+                document.getElementById('age-modal').style.display = 'none';
+            } else {
+                alert('Debes ser mayor de 18 años para continuar.');
+                window.location.href = 'https://www.google.com'; // Redirige a otra página
+            }
+        }
+    </script>
+    <script src="sistema.js"></script>
+</head>
+
+<body>
+    <!-- Cartel de confirmación de edad -->
+    <div id="age-modal">
+        <div class="modal-content">
+            <h1>¿Eres mayor de 18 años?</h1>
+            <button onclick="confirmAge(true)">Sí</button>
+            <button onclick="confirmAge(false)">No</button>
+        </div>
+    </div>
+
+    <!-- Contenedor del formulario de registro -->
+    <div class="form-container">
+        <h1>SISTEMA DE AUTOS</h1>
+        <h2>REGISTRO</h2>
+        <form>
+            <p>Nombre <input type="text" id="nombre" placeholder="Ingrese su nombre"></p>
+            <p>DNI <input type="number" id="dni" placeholder="Ingrese su DNI"></p>
+            <p>Marca
+                <select id="marca">
+                    <option value="1">Toyota</option>
+                    <option value="2">Ford</option>
+                    <option value="3">Honda</option>
+                    <option value="4">Porsche</option>
+                </select>
+            </p>
+            <p>Modelo
+                <select id="modelo">
+                    <option value="1">Sedan</option>
+                    <option value="2">Cupe</option>
+                    <option value="3">Pick Up</option>
+                    <option value="4">Suv</option>
+                </select>
+            </p>
+        </form>
+        <button onclick="sistema()">COTIZAR</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+
+</html>
